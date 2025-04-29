@@ -6,6 +6,12 @@ import docx
 import io
 import csv
 
+import sys
+
+__import__('pysqlite3')
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+
 if "password" not in st.session_state:
     password = st.text_input("请输入密码", type="password")
     if st.button("提交"):
