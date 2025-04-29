@@ -1,3 +1,8 @@
+import sys
+
+__import__('pysqlite3')
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import streamlit as st
 import pandas as pd
 from crewai import Agent, Task, Crew, LLM
@@ -6,10 +11,7 @@ import docx
 import io
 import csv
 
-import sys
 
-__import__('pysqlite3')
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 
 if "password" not in st.session_state:
